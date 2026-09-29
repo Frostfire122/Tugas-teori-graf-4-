@@ -12,5 +12,10 @@ Here you can see that when run after 3 times, it generates new ones every time
 <img width="693" height="386" alt="image" src="https://github.com/user-attachments/assets/5d363147-8150-449f-87a8-1dc8b71217c9" />
 <img width="681" height="336" alt="image" src="https://github.com/user-attachments/assets/c93a7d26-b98c-4cba-af9e-e070f00b79cf" />
 
+## QUestion 2
+
+
+Examples:
+<img width="705" height="291" alt="image" src="https://github.com/user-attachments/assets/ae447ae6-b002-42a1-ab52-c0e2acfc46ad" />
 
 
