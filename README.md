@@ -21,4 +21,6 @@ Examples:
 
 <img width="705" height="291" alt="image" src="https://github.com/user-attachments/assets/ae447ae6-b002-42a1-ab52-c0e2acfc46ad" />
 
+## Ai Usage:
 
+- https://share.gemini.google/prveSVH6qH0r
