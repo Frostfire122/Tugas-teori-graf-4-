@@ -1,4 +1,4 @@
-# Tugas-teori-graf-4-Group_6
+# Tugas-teori-graf-4-Group_4
 
 ## Question 1
 *Random Room and Tunnel Generator Algorithm*
