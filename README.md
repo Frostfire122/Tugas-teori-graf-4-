@@ -1,5 +1,6 @@
 # Tugas-teori-graf-4-Group_6
 
+## Question 1
 *Random Room and Tunnel Generator Algorithm*
 
 Here, the dungeon uses a randomly generated graph in every run. It begins by seeding the random number generator with the system's nanosecond clock, ensuring no two runs produce the same result even when executed one after another. The number of rooms is then chosen randomly between 5 and 10. Since it's fully generated, you can get rooms with no connections at all, disconnected clusters of rooms that can't reach each other, or graphs where the tunnel layout doesn't allow visiting every room exactly once.
