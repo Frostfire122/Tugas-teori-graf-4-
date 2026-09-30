@@ -15,13 +15,23 @@ Here you can see that when run after 3 times, it generates new ones every time
 ## Question 2
 *Dungeon Layout Validation and Pathfinding Algorithm*
 
-To determine whether a generated dungeon layout is valid;meaning a player can visit every room exactly once without backtracking, the algorithm evaluates the graph using both theoretical rules and a step-by-step pathfinder. It first checks Dirac's and Ore's theorems, which act as fast mathematical shortcuts: if a dungeon has enough connections per room overall, these rules instantly guarantee that a complete path exists, though failing them doesn't automatically mean the layout is impossible. To get a definitive answer, the code runs a Depth-First Search (DFS) backtracker that simulates exploring from every room, keeping track of visited locations to avoid repeating any. If it successfully finds a path that covers every single room, it labels the dungeon as valid, reports how many complete routes exist, and prints a sample path; otherwise, it confirms that no valid route can traverse the entire layout.
+To verify whether the generated dungeon is playable, the program checks for the existence of a Hamiltonian Path using Depth-First Search (DFS) with backtracking. The algorithm explores all possible paths starting from every room $0$ to $n-1$, ensuring each room is visited exactly once without revisiting any node. Furthermore, it checks sufficient conditions like Dirac's and Ore's Theorems to evaluate graph connectivity, though validation ultimately relies on the exact path traversal. To keep gameplay interesting, valid routes undergo a similarity check based on edge overlap to filter out paths that are too similar to one another. 
 
 Examples:
 
-<img width="705" height="291" alt="image" src="https://github.com/user-attachments/assets/ae447ae6-b002-42a1-ab52-c0e2acfc46ad" />
+<img width="556" height="225" alt="image" src="https://github.com/user-attachments/assets/01b5c79b-1411-4f7d-aa29-05ddd7c22ac6" />
+
+## Question 3
+
+*Sample Cases*
+
+The algorithm handles both valid and invalid layout configurations cleanly based on graph connectivity:
+
+* **Valid Case:** In a connected 5-room layout where room 0 connects to rooms 1, 2, and 3, and room 4 connects to 1, 2, and 3, the validator identifies a valid dungeon with multiple non-similar routes such as `1 -> 0 -> 2 -> 4 -> 3`.
+* **Invalid Case:** In a disconnected 5-room layout split into two isolated clusters (e.g., rooms {0, 1, 2} interconnected and rooms {3, 4} interconnected), the search finds zero valid paths. The program outputs a clear validation failure stating: `"Statement: No valid path exists in this dungeon layout."`
 
 ## Ai Usage:
 
 - Question 1: https://claude.ai/share/6ca69834-0ce3-4beb-b3e5-3a9a2dee0408
 - Question 2: https://share.gemini.google/prveSVH6qH0r
+- Question 3: https://share.gemini.google/NtpixcohJSoU
