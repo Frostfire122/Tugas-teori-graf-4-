@@ -19,8 +19,9 @@ To determine whether a generated dungeon is traversable, the system evaluates th
 
 Examples:
 
-<img width="541" height="282" alt="image" src="https://github.com/user-attachments/assets/9830ce25-7da5-43d0-a245-8837bbbedbd3" />
-<img width="610" height="214" alt="image" src="https://github.com/user-attachments/assets/5c9b1874-2122-4b35-b6c0-f52ebca04f58" />
+<img width="723" height="333" alt="image" src="https://github.com/user-attachments/assets/4e1e5c2f-04a5-43c4-8956-6141040668ca" />
+<img width="838" height="374" alt="image" src="https://github.com/user-attachments/assets/8ae3941a-50bd-4f2a-a862-87869559d401" />
+
 
 
 
