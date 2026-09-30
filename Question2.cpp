@@ -13,12 +13,24 @@ private:
     int numRooms;
     unordered_map<int, set<int>> adj;
 
+    // Helper to get degree of a vertex
+    int getDegree(int u) const {
+        auto it = adj.find(u);
+        return (it != adj.end()) ? static_cast<int>(it->second.size()) : 0;
+    }
+
+    // Helper to check adjacency between two vertices
+    bool isAdjacent(int u, int v) const {
+        auto it = adj.find(u);
+        return (it != adj.end() && it->second.count(v) > 0);
+    }
+
 public:
     // Deliverable 1: Procedural Dungeon Generator
     void generateDungeon(int minRooms = 5, int maxRooms = 8) {
         adj.clear();
         numRooms = minRooms + rand() % (maxRooms - minRooms + 1);
-        
+
         int maxPossibleTunnels = numRooms * (numRooms - 1) / 2;
         int numTunnels = numRooms + rand() % (maxPossibleTunnels - numRooms + 1);
 
@@ -43,7 +55,7 @@ public:
         cout << "Generated Rooms (n): " << numRooms << "\n";
         cout << "Adjacency List:\n";
         for (int i = 0; i < numRooms; ++i) {
-            cout << "  Room " << i << ": ";
+            cout << "  Room " << i << " (deg: " << getDegree(i) << "): ";
             auto it = adj.find(i);
             if (it != adj.end() && !it->second.empty()) {
                 for (int neighbor : it->second) cout << neighbor << " ";
@@ -52,6 +64,35 @@ public:
             }
             cout << "\n";
         }
+    }
+
+    // --- Sufficient Condition Checks ---
+
+    // Dirac's Theorem: deg(v) >= n / 2 for all v (for n >= 3)
+    bool checkDiracTheorem() const {
+        if (numRooms < 3) return false;
+        double threshold = numRooms / 2.0;
+        for (int i = 0; i < numRooms; ++i) {
+            if (getDegree(i) < threshold) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Ore's Theorem: deg(u) + deg(v) >= n for all non-adjacent pairs (u, v) (for n >= 3)
+    bool checkOreTheorem() const {
+        if (numRooms < 3) return false;
+        for (int i = 0; i < numRooms; ++i) {
+            for (int j = i + 1; j < numRooms; ++j) {
+                if (!isAdjacent(i, j)) {
+                    if (getDegree(i) + getDegree(j) < numRooms) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     // Deliverable 2: DFS Backtracking for Hamiltonian Paths
@@ -111,6 +152,15 @@ public:
     }
 
     void validateAndPrint() const {
+        cout << "--- Sufficiency Checks ---\n";
+        bool diracPassed = checkDiracTheorem();
+        bool orePassed = checkOreTheorem();
+
+        cout << "Dirac's Theorem Check : " << (diracPassed ? "PASSED (Guaranteed Hamiltonian)" : "FAILED (Inconclusive)") << "\n";
+        cout << "Ore's Theorem Check   : " << (orePassed ? "PASSED (Guaranteed Hamiltonian)" : "FAILED (Inconclusive)") << "\n";
+        cout << "(Note: Failing these theorems does not mean non-Hamiltonian, as they are sufficient, not necessary conditions.)\n\n";
+
+        cout << "--- DFS Path Exploration ---\n";
         vector<vector<int>> allPaths;
         for (int start = 0; start < numRooms; ++start) {
             vector<bool> visited(numRooms, false);
@@ -125,7 +175,7 @@ public:
 
             vector<vector<int>> distinctRoutes = getDiversePaths(allPaths, 0.5);
             cout << "Distinct (Non-Similar) Routes Found: " << distinctRoutes.size() << "\n";
-            
+
             cout << "Sample Routes:\n";
             int limit = min(3, static_cast<int>(distinctRoutes.size()));
             for (int r = 0; r < limit; ++r) {
@@ -146,7 +196,7 @@ int main() {
     srand(static_cast<unsigned int>(time(NULL)));
 
     DungeonSystem dungeon;
-    
+
     dungeon.generateDungeon(5, 7);
     dungeon.printDungeonDetails();
     cout << "\n";
