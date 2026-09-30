@@ -21,9 +21,7 @@ Examples:
 
 <img width="723" height="333" alt="image" src="https://github.com/user-attachments/assets/4e1e5c2f-04a5-43c4-8956-6141040668ca" />
 <img width="838" height="374" alt="image" src="https://github.com/user-attachments/assets/8ae3941a-50bd-4f2a-a862-87869559d401" />
-
-
-
+<img width="715" height="244" alt="image" src="https://github.com/user-attachments/assets/0e1118ed-9d64-4d36-90c9-3ecfe9ce7473" />
 
 ## Question 3
 
