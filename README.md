@@ -20,6 +20,8 @@ To verify whether the generated dungeon is playable, the program checks for the 
 Examples:
 
 <img width="556" height="225" alt="image" src="https://github.com/user-attachments/assets/01b5c79b-1411-4f7d-aa29-05ddd7c22ac6" />
+<img width="551" height="200" alt="image" src="https://github.com/user-attachments/assets/5f1be0c9-42e9-4a57-b6c7-02f2b25c0bb3" />
+
 
 ## Question 3
 
