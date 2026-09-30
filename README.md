@@ -15,12 +15,13 @@ Here you can see that when run after 3 times, it generates new ones every time
 ## Question 2
 *Dungeon Layout Validation and Pathfinding Algorithm*
 
-To verify whether the generated dungeon is playable, the program checks for the existence of a Hamiltonian Path using Depth-First Search (DFS) with backtracking. The algorithm explores all possible paths starting from every room $0$ to $n-1$, ensuring each room is visited exactly once without revisiting any node. Furthermore, it checks sufficient conditions like Dirac's and Ore's Theorems to evaluate graph connectivity, though validation ultimately relies on the exact path traversal. To keep gameplay interesting, valid routes undergo a similarity check based on edge overlap to filter out paths that are too similar to one another. 
+To determine whether a generated dungeon is traversable, the system evaluates the layout for a Hamiltonian Path by first running Dirac's and Ore's Theorems as sufficient degree-based pre-checks, and then falling back on a recursive Depth-First Search (DFS) with backtracking to exhaustively search for complete routes through every room, flagging the dungeon as INVALID if isolated components or bottlenecks prevent full traversal or presenting distinct sample routes if successful.
 
 Examples:
 
-<img width="556" height="225" alt="image" src="https://github.com/user-attachments/assets/01b5c79b-1411-4f7d-aa29-05ddd7c22ac6" />
-<img width="551" height="200" alt="image" src="https://github.com/user-attachments/assets/5f1be0c9-42e9-4a57-b6c7-02f2b25c0bb3" />
+<img width="541" height="282" alt="image" src="https://github.com/user-attachments/assets/9830ce25-7da5-43d0-a245-8837bbbedbd3" />
+<img width="610" height="214" alt="image" src="https://github.com/user-attachments/assets/5c9b1874-2122-4b35-b6c0-f52ebca04f58" />
+
 
 
 ## Question 3
